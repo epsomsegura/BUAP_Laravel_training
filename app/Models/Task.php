@@ -16,4 +16,14 @@ class Task extends Model
         'end_at',
         'status'
     ];
+
+    public function users()
+    {
+        return $this->belongsToMany(
+            User::class,
+            'user__task',
+            'task_id',
+            'user_id'
+        );
+    }
 }
